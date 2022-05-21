@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/css/homepage.css' %}">
+    <title>Online Auction</title>
+</head>
+
+<body>
+    <div class="top-bar">
+            <span>New Auction Soon</span>
+            <span class="js-countdown" data-timer="19800" data-labels=" :  ,  : , : , "></span>
+        <div>
+            <ul class="social-links">
+                <li> <a href="#"><i class="fab fa-facebook-f icon"></i></a> </li>
+                <li> <a href="#"><i class="fab fa-instagram icon"></i> </a> </li>
+                <li> <a href="#"><i class="fab fa-twitter icon"></i> </a> </li>
+                <li> <a href="#"><i class="fab fa-linkedin-in icon"> </i> </a> </li>
+                <li> <a href="#"><i class="fab fa-google-plus-g icon"> </i> </a> </li>
+            </ul>
+        </div>
+        <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <div class="search"></div>
+            </div>
+    </div>
+    <header>
+        <div class="container">
+
+            <label for="check"></label><input type="checkbox" name="" id="check">
+            <div class="logo-container">
+                <img src="{% static '/img/auctionlogo.png' %}" width="60" height="60">
+                <h3 class="logo"><span>Just Bid It.</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Products<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Accessories</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Automotive</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Antiques</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Console</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Computers</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Electronics</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Game</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="{% url 'products:products_list' %}">All products</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Auctions<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Latest</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Most popular</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">All auctions</a>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="log-sign" style="--i: 1.8s">
+                    <a href="{% url 'accounts:login' %}" class="btn transparent">Log in</a>
+                    <a href="{% url 'accounts:signup' %}" class="btn solid">Sign up</a>
+                </div>
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="overlay"></div>
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+</body>
+   <script src="/static/js/count-down.js"></script>
+   <script src="/static/js/search-box.js"></script>
+</html>

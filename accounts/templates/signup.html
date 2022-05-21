@@ -1,0 +1,53 @@
+{% load crispy_forms_filters %}
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+        <video id="background-video" autoplay loop muted>
+            <source src="/static/img/signup_background.mp4" type="video/mp4">
+        </video>
+        <div class='overlay'>
+                <div class='welcome'>Welcome</div>
+                <ul>
+                    <li><a href="{% url 'website:homepage' %}">Home</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                </ul>
+                <div class="signup-message">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <p> {{ message }} </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class='input-fields'>
+                        <form method="POST" class="register-form" action="" id="register-form">
+                            {% csrf_token %}
+                                <div class="details">
+                                    <div class="form-group">
+                                        {{ form.email }}
+                                        {{ form.password1 }}
+                                        {{ form.password2 }}
+                                        {{ form.firstname }}
+                                        {{ form.lastname }}
+                                        {{ form.phone_number }}
+                                        {{ form.address }}
+                                        {{ form.city }}
+                                        {{ form.country }}
+                                    </div>
+                                <div>
+                                <button class="ghost-round" type="submit" value="Submit" > Register </button>
+                        </form>
+                </div>
+
+</body>
+</html>
