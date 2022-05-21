@@ -1,14 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
     <title>Online Auction</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    {% block styles %}{% endblock styles %}
 </head>
 
 <body>
@@ -70,7 +70,7 @@
                                         <a href="#">Game</a>
                                     </li>
                                     <li class="dropdown-link">
-                                        <a href="{% url 'products:products_list' %}">All products</a>
+                                        <a href="{% url 'products:product_list' %}">All products</a>
                                     </li>
                                     <div class="arrow"></div>
                                 </ul>
@@ -113,9 +113,7 @@
     </header>
     <main>
         <section>
-            <div class="overlay"></div>
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock content %}
         </section>
     </main>
 </body>

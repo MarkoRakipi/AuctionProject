@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 
 class Product(models.Model):
@@ -21,13 +22,14 @@ class Product(models.Model):
     start_price = models.DecimalField(decimal_places=4, max_digits=8)
     buy_now_price = models.DecimalField(decimal_places=4, max_digits=8)
 
-    verbose_name_plural = 'products'
 
     def __str__(self):
         return "Title: " + self.title
 
     class Meta:
         db_table = 'product'
+        verbose_name = _('product')
+        verbose_name_plural = _('products')
 
 
 class Auction(models.Model):

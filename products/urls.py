@@ -1,11 +1,11 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path
-from .views import ProductsList
+
+from . import views
+
 
 app_name = 'products'
 
 urlpatterns = [
-        path('productlist/', ProductsList.as_view(), name='products_list'),
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', views.ProductList.as_view(), name='product_list'),
+    path('add/', views.ProductCreateView.as_view(), name="product_add"),
+]
