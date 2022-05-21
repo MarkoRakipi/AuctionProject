@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/d9e99fb3b3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static '/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
     <title>Online Auction</title>
 </head>
 
@@ -98,10 +98,17 @@
                     </ul>
                 </div>
 
+                {% if user.is_authenticated %}
                 <div class="log-sign" style="--i: 1.8s">
                     <a href="{% url 'accounts:profile' %}" class="btn transparent"><i class="fa-solid fa-user"></i>Profile</a>
                     <a href="{% url 'accounts:logout' %}" class="btn solid">Log Out</a>
                 </div>
+                {% else %}
+                    <div class="log-sign" style="--i: 1.8s">
+                    <a href="" class="btn transparent"><i class="fa-solid fa-user"></i> Login</a>
+                    <a href="" class="btn solid">Register</a>
+                </div>
+                {% endif %}
             </div>
 
             <div class="hamburger-menu-container">
