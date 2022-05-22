@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<style>
+.form-product {
+    width: 720px;
+    margin: 3rem auto;
+    border: 1px solid white;
+    box-shadow: inset 1px 1px 2px black;
+    padding: 1rem;
+    border-radius: 9px;
+}
+
+.form-product p {
+    margin: 0;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-product > p > label {
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    display: inline-block;
+    width: 25%;
+}
+
+.form-product input[type=text],
+.form-product input[type=number],
+.form-product select {
+    padding: 0.25rem 0.5rem;
+    width: 70%;
+}
+
+.form-actions {
+    border-top: 1px solid white;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.form-actions > button[type=submit] {
+    background-color: #198754;
+    border: 1px solid #198754;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+    font-size: 18px;
+}
+.errorlist > li {
+    color: red;
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<form novalidate action="" method="post" enctype="multipart/form-data" class="form-product">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+        <button type="submit">Add product</button>
+    </div>
+</form>
+{% endblock content %}
