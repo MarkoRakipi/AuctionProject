@@ -105,8 +105,8 @@
                 </div>
                 {% else %}
                     <div class="log-sign" style="--i: 1.8s">
-                    <a href="" class="btn transparent"><i class="fa-solid fa-user"></i> Login</a>
-                    <a href="" class="btn solid">Register</a>
+                    <a href="{% url 'accounts:login' %}" class="btn transparent"><i class="fa-solid fa-user"></i> Login</a>
+                    <a href="{% url 'accounts:signup' %}" class="btn solid">Register</a>
                 </div>
                 {% endif %}
             </div>
