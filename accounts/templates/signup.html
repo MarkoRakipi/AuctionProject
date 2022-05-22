@@ -15,10 +15,13 @@
         </video>
         <div class='overlay'>
                 <div class='welcome'>Welcome</div>
-                <ul>
-                    <li><a href="{% url 'website:homepage' %}">Home</a></li>
-                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
-                </ul>
+                <div class="links">
+                    <ul>
+                        <li><a href="{% url 'website:homepage' %}">Home</a></li>
+                        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    </ul>
+                </div>
+
                 <div class="signup-message">
                     {% if messages %}
                         {% for message in messages %}
@@ -33,7 +36,7 @@
                         <form method="POST" class="register-form" action="" id="register-form">
                             {% csrf_token %}
                                 <div class="details">
-                                    <div class="form-group">
+                                    <div class="form-control">
                                         {{ form.email }}
                                         {{ form.password1 }}
                                         {{ form.password2 }}

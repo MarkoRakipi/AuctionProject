@@ -12,17 +12,50 @@ body{
   background-position: center;
 
 }
-.details{
+.login-form{
   text-align: center;
+
 }
 
-.details .form-control{
+.form-control{
   border:none;
   margin-bottom: 15px;
   padding:20px 60px;
   border-radius:25px;
 }
 
+ul{
+  font-weight: 200;
+  text-align: center;
+  font-family: 'Urbanist', sans-serif;
+  color: black;
+  margin-top: 10px;
+  list-style: none;
+  display: inline-flex;
+  width: fit-content;
+  padding-left: 60px;
+}
+
+li{
+  list-style: none;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: right;
+  display: inline;
+  width: fit-content;
+  margin-right: 70px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  transform: scale(1.1);
+  color: royalblue;
+  animation: animate 8s linear infinite;
+  transition: all .4s ease-in-out;
+  background-size: 200% 100%;
+}
 
 .container {
   display: -webkit-box;

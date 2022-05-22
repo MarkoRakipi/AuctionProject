@@ -27,24 +27,25 @@ def signup(request):
 def user_login(request):
     if request.user.is_authenticated:
         return redirect('website:homepage')
+
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            # email = request.POST.get('email')
+            # password = request.POST.get('password')
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, email=email, password=password)
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Login Successfully!")
+                return redirect('accounts:profile')
+            else:
+                messages.success(request, "Username or password was incorrect.Try again.")
     else:
-        if request.method == "POST":
-            form = LoginForm(request.POST)
-            if form.is_valid():
-                # email = request.POST.get('email')
-                # password = request.POST.get('password')
-                email = form.cleaned_data.get('email')
-                password = form.cleaned_data.get('password')
-                user = authenticate(request, email=email, password=password)
-
-                if user is not None:
-                    login(request, user)
-                    messages.success(request, "Login Successfully!")
-                    return redirect('accounts:profile')
-                else:
-                    messages.success(request, "Username or password was incorrect.Try again.")
-
-        return render(request, 'login.html')
+        form = LoginForm()
+        return render(request, 'login.html', context={"form": form})
 
 
 @login_required(login_url='accounts:login')

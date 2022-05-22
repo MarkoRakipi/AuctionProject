@@ -64,8 +64,10 @@ class SignUpForm(UserCreationForm):
 class LoginForm(forms.Form):
     email = forms.EmailField(required=True,
                              widget=forms.TextInput(attrs={'placeholder': 'Email',
+                                                           'class': 'form-control',
                                                            }))
     password = forms.CharField(required=True,
                                widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+                                                                 'class': 'form-control',
                                                                  }))
 

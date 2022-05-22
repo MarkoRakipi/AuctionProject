@@ -28,6 +28,14 @@
   height: fit-content;
 }
 
+.details .form-control{
+  border:none;
+  margin-bottom: 15px;
+  padding:20px 60px;
+  border-radius:25px;
+  border: red;
+}
+
 .welcome {
   font-weight: 200;
   margin-top: 30px;
@@ -71,7 +79,7 @@ ul{
   text-align: center;
   font-family: 'Urbanist', sans-serif;
   color: black;
-  margin-top: 20px;
+  margin-top: 10px;
   list-style: none;
   display: inline-flex;
   width: fit-content;

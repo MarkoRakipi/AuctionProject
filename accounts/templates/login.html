@@ -13,14 +13,16 @@
                 <div class='overlay'></div>
                     <div class='content'>
                         <div class='welcome'>WELCOME</div>
+                            <ul>
+                                    <li><a href="{% url 'website:homepage' %}">Home</a></li>
+                                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                                </ul>
                             <h3>Login Here</h3>
                                 <form method="POST" class="login-form" action="">
                                     {% csrf_token %}
                                         <div class="details">
-                                            <div class="form-control">
-                                                {{ form.email }}
-                                                {{ form.password }}
-                                            </div>
+                                            {{ form.email }}
+                                            {{ form.password }}
                                                 <button class='ghost-round full-width'>Sign In</button>
                                         </div>
                                 </form>
